@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 using namespace std;
 
@@ -48,7 +49,7 @@ vector< vector<int> > scatter(vector< vector<int> > A) {
 	int number_of_indices = 1000;
 	vector<int> indices(number_of_indices), data(number_of_indices);
 	for(int i = 0; i < number_of_indices ; i++){
-		indices[i] = rand() % (number_of_indices);
+		indices[i] = rand() % (n*n);
 		data[i] = rand();
 	}
 	for(int i = 0 ; i < number_of_indices ; i++){
@@ -74,6 +75,7 @@ void printMatrix(vector< vector<int> > matrix) {
 }
 
 int main (int argc, char* argv[]) {
+	srand(time(0));
 	string filename;
 	if (argc < 3) {
 		filename = "2000.in";
