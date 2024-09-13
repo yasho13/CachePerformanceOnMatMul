@@ -74,7 +74,7 @@ def main():
         #Replace random x %element to 0 in matrixB
         #matrixB = np.asarray(matrixB)
         #indicesB = np.random.choice(np.arange(matrixB.size), replace=False,
-                           size=int(matrixB.size * (args.sparsity/100)))
+                           #size=int(matrixB.size * (args.sparsity/100)))
         #flatB  = matrixB.flatten()
         #flatB[indicesB] = 0
         #Reshape it back to square matrix    
