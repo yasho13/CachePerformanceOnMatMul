@@ -45,7 +45,7 @@ Result read(string filename) {
 
 vector< vector<int> > scatter(vector< vector<int> > A) {
 	int n = A.size();
-	int num_of_indices = 1000;
+	int number_of_indices = 1000;
 	vector<int> indices(number_of_indices), data(number_of_indices);
 	for(int i = 0; i < number_of_indices ; i++){
 		indices[i] = rand() % (number_of_indices);
