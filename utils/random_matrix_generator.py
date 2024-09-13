@@ -21,13 +21,13 @@ def createRandomMatrix(n):
     return matrix
 
 
-def saveMatrix(matrixA, matrixB, filename):
+def saveMatrix(matrixA, filename):
     if os.path.exists(filename): 
         os.remove(filename)
     else:   
         print("New file created: ",filename)
     f = open(filename, "w")
-    for i, matrix in enumerate([matrixA, matrixB]):
+    for i, matrix in enumerate([matrixA]):
         if i != 0:
             f.write("\n")
         for line in matrix:
@@ -61,7 +61,7 @@ def main():
     outpath = args.dump
     #Create dense matrix
     matrixA = createRandomMatrix(n)
-    matrixB = createRandomMatrix(n)
+    #matrixB = createRandomMatrix(n)
     #print(matrixA)
     #Convert to sparse matrix by replacing value below threshold to 0
     if (args.sparsity):
@@ -72,26 +72,26 @@ def main():
         flatA  = matrixA.flatten()
         flatA[indicesA] = 0
         #Replace random x %element to 0 in matrixB
-        matrixB = np.asarray(matrixB)
-        indicesB = np.random.choice(np.arange(matrixB.size), replace=False,
+        #matrixB = np.asarray(matrixB)
+        #indicesB = np.random.choice(np.arange(matrixB.size), replace=False,
                            size=int(matrixB.size * (args.sparsity/100)))
-        flatB  = matrixB.flatten()
-        flatB[indicesB] = 0
+        #flatB  = matrixB.flatten()
+        #flatB[indicesB] = 0
         #Reshape it back to square matrix    
         flatA = flatA.reshape(n,n)
-        flatB = flatB.reshape(n,n)
+        #flatB = flatB.reshape(n,n)
         #print(flatA)
         matrixA_csr = sparse.csr_matrix(flatA)
         #print(matrixA_csr)
-        matrixB_csr = sparse.csr_matrix(flatB)
+        #matrixB_csr = sparse.csr_matrix(flatB)
         matrixA = flatA.tolist()
-        matrixB = flatB.tolist()
+        #matrixB = flatB.tolist()
         csr_Amatrix = "csrA_"+args.dump
-        csr_Bmatrix = "csrB_"+args.dump
+        #csr_Bmatrix = "csrB_"+args.dump
         saveCSRMatrix(matrixA_csr, csr_Amatrix)
-        saveCSRMatrix(matrixB_csr, csr_Bmatrix)
+        #saveCSRMatrix(matrixB_csr, csr_Bmatrix)
         #print(matrixA)
-    saveMatrix(matrixA, matrixB, args.dump)
+    saveMatrix(matrixA, args.dump)
 
 if __name__ == '__main__':
     main()
