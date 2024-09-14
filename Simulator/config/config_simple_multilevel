@@ -22,7 +22,7 @@ cache_3:
 
 cache_4:
   blocks: 512
-  associativity: 8
+  associativity: 16
   hit_time: 150
 
 mem: #required
