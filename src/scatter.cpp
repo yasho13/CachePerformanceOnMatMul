@@ -44,21 +44,29 @@ Result read(string filename) {
 	return ab;
 }
 
-vector< vector<int> > scatter(vector< vector<int> > A) {
-	int n = A.size();
-	int number_of_indices = 1000;
-	vector<int> indices(number_of_indices), data(number_of_indices);
-	for(int i = 0; i < number_of_indices ; i++){
-		indices[i] = rand() % (n*n);
-		data[i] = rand();
-	}
-	for(int i = 0 ; i < number_of_indices ; i++){
-		int row = indices[i]/n;
-		int col = indices[i]%n;
-		A[row][col] = data[i];
-	}
-	return A;
+vector< vector<int> > scatterData(vector< vector<int> > matrix) {
+    int matrix_size = matrix.size();
+    int total_elements = 1000;
+    
+    // Vectors for storing randomly generated indices and data
+    vector<int> random_indices(total_elements), random_values(total_elements);
+
+    // Generate random indices and values
+    for(int idx = 0; idx < total_elements; idx++) {
+        random_indices[idx] = rand() % (matrix_size * matrix_size);
+        random_values[idx] = rand();
+    }
+
+    // Assign the random values to the matrix at the respective random positions
+    for(int idx = 0; idx < total_elements; idx++) {
+        int row_position = random_indices[idx] / matrix_size;
+        int col_position = random_indices[idx] % matrix_size;
+        matrix[row_position][col_position] = random_values[idx];
+    }
+    
+    return matrix;
 }
+
 
 void printMatrix(vector< vector<int> > matrix) {
 	vector< vector<int> >::iterator it;
