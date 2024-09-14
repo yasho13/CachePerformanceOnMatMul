@@ -188,6 +188,10 @@ def build_hierarchy(configs, logger):
     main_memory = build_cache(configs, 'mem', None, logger)
     prev_level = main_memory
     hierarchy['mem'] = main_memory
+    if 'cache_4' in list(configs.keys()):
+        cache_4 = build_cache(configs, 'cache_4', prev_level, logger)
+        prev_level = cache_4
+        hierarchy['cache_4'] = cache_4
     if 'cache_3' in list(configs.keys()):
         cache_3 = build_cache(configs, 'cache_3', prev_level, logger)
         prev_level = cache_3
