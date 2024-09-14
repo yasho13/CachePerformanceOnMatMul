@@ -45,19 +45,17 @@ Result read(string filename) {
 }
 
 vector< vector<int> > scatterData(vector< vector<int> > matrix) {
+	
+    vector<int> random_indices(total_elements), random_values(total_elements);
     int matrix_size = matrix.size();
     int total_elements = 1000;
     
-    // Vectors for storing randomly generated indices and data
-    vector<int> random_indices(total_elements), random_values(total_elements);
-
-    // Generate random indices and values
+   
     for(int idx = 0; idx < total_elements; idx++) {
         random_indices[idx] = rand() % (matrix_size * matrix_size);
         random_values[idx] = rand();
     }
 
-    // Assign the random values to the matrix at the respective random positions
     for(int idx = 0; idx < total_elements; idx++) {
         int row_position = random_indices[idx] / matrix_size;
         int col_position = random_indices[idx] % matrix_size;
