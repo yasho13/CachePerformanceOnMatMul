@@ -44,7 +44,7 @@ Result read(string filename) {
 	return ab;
 }
 
-vector<int> gather(const vector<vector<int>>& A) {
+vector< vector<int> > gather(vector< vector<int> > A) {
 	int n = A.size();
 	int number_of_indices = 1000;
 	vector<int> indices(number_of_indices), gathered_data(number_of_indices);
