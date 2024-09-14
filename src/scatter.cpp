@@ -90,7 +90,7 @@ int main (int argc, char* argv[]) {
 	}
 	Result result = read (filename);
     parsec_roi_begin();
-	vector< vector<int> > C = scatter(result.A);
+	vector< vector<int> > C = scatterData(result.A);
     parsec_roi_end();
 	//printMatrix(C);
 	return 0;
