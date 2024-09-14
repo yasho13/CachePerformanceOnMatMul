@@ -20,6 +20,11 @@ cache_3:
   associativity: 8
   hit_time: 100
 
+cache_4:
+  blocks: 512
+  associativity: 8
+  hit_time: 150
+
 mem: #required
   hit_time: 1000 #cycles
 
