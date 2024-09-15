@@ -42,24 +42,22 @@ Result read(string filename) {
     return ab;
 }
 
-vector<int> gather(const vector<vector<int>>& A) {
-    int n = A.size();
-    int number_of_indices = 1000;
-    vector<int> indices(number_of_indices), gathered_data(number_of_indices);
+vector<int> gather(const vector<vector<int>>& matrix) {
+    int matrix_size = matrix.size();
+    int total_elements = 1000;
+    vector<int> selected_indices(total_elements), collected_data(total_elements);
     
-    // Generate 1,000 random indices
-    for(int i = 0; i < number_of_indices; i++) {
-        indices[i] = rand() % (n * n);  // Random index within the flattened matrix
+    for(int idx = 0; idx < total_elements; idx++) {
+        selected_indices[idx] = rand() % (matrix_size * matrix_size);  
     }
     
-    // Gather elements at the random indices
-    for(int i = 0; i < number_of_indices; i++) {
-        int row = indices[i] / n;  // Compute row
-        int col = indices[i] % n;  // Compute column
-        gathered_data[i] = A[row][col];  // Gather the element
+    for(int idx = 0; idx < total_elements; idx++) {
+        int row_idx = selected_indices[idx] / matrix_size;  
+        int col_idx = selected_indices[idx] % matrix_size;  
+        collected_data[idx] = matrix[row_idx][col_idx];  
     }
     
-    return gathered_data;  // Return the gathered data
+    return collected_data;  
 }
 
 // Updated to print a 1D vector
