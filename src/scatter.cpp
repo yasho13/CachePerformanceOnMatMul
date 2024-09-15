@@ -46,9 +46,10 @@ Result read(string filename) {
 
 vector< vector<int> > scatterData(vector< vector<int> > matrix) {
 	
-    vector<int> random_indices(total_elements), random_values(total_elements);
+    
     int matrix_size = matrix.size();
     int total_elements = 1000;
+    vector<int> random_indices(total_elements), random_values(total_elements);
     
    
     for(int idx = 0; idx < total_elements; idx++) {
