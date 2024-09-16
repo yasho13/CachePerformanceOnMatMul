@@ -6,7 +6,6 @@
 #include <ctime>
 
 using namespace std;
-
 void parsec_roi_begin() 
 {
 }
