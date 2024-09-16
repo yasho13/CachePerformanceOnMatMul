@@ -94,7 +94,7 @@ int main (int argc, char* argv[]) {
     }
     Result result = read (filename);
     parsec_roi_begin();
-    vector<int> C = convolve(result.A);  // Corrected to vector<int>
+    vector<vector<int>> C = convolve(result.A);  // Corrected to vector<int>
     parsec_roi_end();
     
     // Optionally print the gathered data as a 1D vector
