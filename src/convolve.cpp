@@ -14,7 +14,6 @@ void parsec_roi_begin()
 void parsec_roi_end() 
 {
 }
-
 struct Result {
     vector< vector<int> > A;
 };
